@@ -9,7 +9,7 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.json());
 
-const uri = `mongodb+srv://technet:technet@cluster0.uvyemjj.mongodb.net/technet-db?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://technet:HmwMUTwPKcFYgrGl@cluster0.uvyemjj.mongodb.net/technet-db?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -18,8 +18,8 @@ const client = new MongoClient(uri, {
 
 const run = async () => {
   try {
-    const db = client.db('tech-net');
-    const productCollection = db.collection('product');
+    const db = client.db('technet-db');
+    const productCollection = db.collection('products');
 
     app.get('/products', async (req, res) => {
       const cursor = productCollection.find({});
